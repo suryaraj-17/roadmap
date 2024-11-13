@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <title>Document</title>
+    <style>
+        body {
+            background-image: url('roadmap.jpg');
+            background-size: 45% auto;
+            background-position: top center;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 20px 0;
+            height: 100vh;
+            box-sizing: border-box;
+        }
+        .button-container {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+        .north, .south, .east, .west {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: red;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .north {
+            margin-bottom: 30px;
+        }
+
+        .south {
+            margin-top: 350px;
+        }
+
+        .east-container, .west-container {
+            position: absolute;
+            top: 48%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .east-container {
+            right: 40%;
+        }
+
+        .west-container {
+            left: 40%;
+        }
+
+        /* Styling red outline for buttons */
+        .btn-outline-danger {
+            color: red;
+            border-color: red;
+        }
+        .btn-outline-danger:hover {
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- North and South buttons in their original positions -->
+    <div class="container d-flex flex-column align-items-center justify-content-center mt-5">
+        <div class="row mb-3">
+            <div class="col">
+                <div id="north-out" class="north">Out</div> 
+            </div>
+            <div class="col">
+                <div id="north-in" class="north">In</div> 
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col">
+                <div id="south-in" class="south">In</div> 
+            </div>
+            <div class="col">
+                <div id="south-out" class="south">Out</div> 
+            </div>
+        </div>
+    </div>
+
+    <!-- East buttons centered on the right -->
+    <div class="east-container">
+        <div id="east-out" class="east">Out</div>
+        <div id="east-in" class="east">In</div>
+    </div>
+
+    <!-- West buttons centered on the left -->
+    <div class="west-container">
+        <div id="west-in" class="west">In</div>
+        <div id="west-out" class="west">Out</div>
+    </div>
+
+    <!-- Red outline buttons in top-left corner -->
+    <div class="button-container d-flex flex-column align-items-start">
+        <div class="row mb-2">
+            <div class="col">
+                <button class="btn btn-outline-danger w-100" onclick="North()">North</button>
+            </div>
+            <div class="col">
+                <button class="btn btn-outline-danger w-100" onclick="South()">South</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <button class="btn btn-outline-danger w-100" onclick="East()">East</button>
+            </div>
+            <div class="col">
+                <button class="btn btn-outline-danger w-100" onclick="West()">West</button>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col">
+                <button class="btn btn-outline-danger w-100" onclick="reset()">Reset</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var north_in = document.getElementById("north-in");
+        var north_out = document.getElementById("north-out");
+        var south_in = document.getElementById("south-in");
+        var south_out = document.getElementById("south-out");
+        var east_in = document.getElementById("east-in");
+        var east_out = document.getElementById("east-out");
+        var west_in = document.getElementById("west-in");
+        var west_out = document.getElementById("west-out");
+        
+        function reset() {
+        // Reset both "In" and "Out" buttons for each direction to red
+        north_in.style.backgroundColor = "red";
+        north_out.style.backgroundColor = "red";
+        south_in.style.backgroundColor = "red";
+        south_out.style.backgroundColor = "red";
+        east_in.style.backgroundColor = "red";
+        east_out.style.backgroundColor = "red";
+        west_in.style.backgroundColor = "red";
+        west_out.style.backgroundColor = "red";
+}
+
+        // Function to change the color of the North "In" button
+        function North() {
+            reset();
+            north_in.style.backgroundColor = "green";
+            south_out.style.backgroundColor = "green";
+            east_out.style.backgroundColor = "green";
+            west_out.style.backgroundColor = "green";
+        }
+
+       //  Function to change the color of the South "In" button
+        function South() {
+            reset();
+            north_out.style.backgroundColor = "green";
+            south_in.style.backgroundColor = "green";
+            east_out.style.backgroundColor = "green";
+            west_out.style.backgroundColor = "green";
+        }
+
+        // Function to change the color of the East "In" button
+        function East() {
+            reset();
+            north_out.style.backgroundColor = "green";
+            south_out.style.backgroundColor = "green";
+            east_in.style.backgroundColor = "green";
+            west_out.style.backgroundColor = "green";
+        }
+
+        // Function to change the color of the West "In" button
+        function West() {
+            reset();
+            north_out.style.backgroundColor = "green";
+            south_out.style.backgroundColor = "green";
+            east_out.style.backgroundColor = "green";
+            west_in.style.backgroundColor = "green";
+        }
+    </script>
+</body>
+</html>
